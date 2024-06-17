@@ -1,5 +1,5 @@
 // セルの発散判定を行い、判定まで退いてレーション回数を返す関数
-fn get_n_diverged(x0: f64, y0: f64, max_iter: u32) -> u8 {
+fn get_n_diverged(x0: f64, y0: f64, max_iter: usize) -> u8 {
     // 複素数の漸化式: z_{n+1} = z_n^2 + c (z_0 = x0 + y0i)
     let mut xn = 0.0;
     let mut yn = 0.0;
@@ -19,13 +19,13 @@ fn get_n_diverged(x0: f64, y0: f64, max_iter: u32) -> u8 {
 }
 
 pub fn generate_mandelbrot_set(
-    canvas_w: u32,
-    canvas_h: u32,
+    canvas_w: usize,
+    canvas_h: usize,
     x_min: f64,
     x_max: f64,
     y_min: f64,
     y_max: f64,
-    max_iter: u32,
+    max_iter: usize,
 ) -> Vec<u8> {
     let convas_w_f64 = canvas_w as f64;
     let convas_h_f64 = canvas_h as f64;
